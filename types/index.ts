@@ -5,7 +5,7 @@ export interface ICategory {
 
 export interface ICategoryAttribute {
   Title: string;
-  Slug: string;
+  slug: string;
 }
 export interface IPagination {
   page: number;
