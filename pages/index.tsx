@@ -1,4 +1,4 @@
-import type { NextPage } from "next";
+import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 
 const Home: NextPage = () => {
@@ -15,6 +15,18 @@ const Home: NextPage = () => {
       </main>
     </div>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  // fetch categories
+  // We're going to use Axios
+  return {
+    props: {
+      categories: {
+        items: [],
+      },
+    },
+  };
 };
 
 export default Home;
