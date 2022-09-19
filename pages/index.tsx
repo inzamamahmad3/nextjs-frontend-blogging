@@ -1,7 +1,7 @@
 import { AxiosResponse } from "axios";
 import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
-import Tabs from "../components/tabs";
+import Tabs from "../components/Tabs";
 import { fetchCategories } from "../http";
 import { ICategory, ICollectionResponse } from "../types";
 interface IPropTypes {
