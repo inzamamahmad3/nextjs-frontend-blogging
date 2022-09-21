@@ -19,9 +19,7 @@ const Home: NextPage<IPropTypes> = ({ categories }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Tabs categories={categories.items} />
-      <main>
-        <h1 className="text-primary-dark ">Welcome to CS ROADMAP</h1>
-      </main>
+      {/* We're going to use Article data that we fetch from Server 1. We need to create end point for our http server */}
     </div>
   );
 };
