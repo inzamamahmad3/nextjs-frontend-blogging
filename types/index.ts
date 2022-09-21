@@ -59,6 +59,7 @@ export interface IArticleAttribute {
   Image: IImageData;
   createdAt: string;
   author: IAurthor;
+  shortDescription: string;
 }
 export interface IArticle {
   id: number;
