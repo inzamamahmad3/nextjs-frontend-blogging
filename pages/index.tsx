@@ -2,8 +2,8 @@ import { AxiosResponse } from "axios";
 import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import Tabs from "../components/Tabs";
-import { fetchCategories } from "../http";
-import { ICategory, ICollectionResponse } from "../types";
+import { fetchArticle, fetchCategories } from "../http";
+import { IArticle, ICategory, ICollectionResponse } from "../types";
 interface IPropTypes {
   categories: {
     items: ICategory[];
@@ -25,6 +25,9 @@ const Home: NextPage<IPropTypes> = ({ categories }) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
+  // Articles fetch
+  const { data: articles }: AxiosResponse<ICollectionResponse<IArticle[]>> =
+    await fetchArticle();
   // fetch categories
   // We're going to use Axios
   const { data: categories }: AxiosResponse<ICollectionResponse<ICategory[]>> =
