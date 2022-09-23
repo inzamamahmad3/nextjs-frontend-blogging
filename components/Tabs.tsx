@@ -28,7 +28,7 @@ const Tabs = ({ categories }: IPropType) => {
             }`
           }
         >
-          <Link href="#">Recent</Link>
+          <Link href="/">Recent</Link>
         </li>
         {categories.map((category) => {
           return (

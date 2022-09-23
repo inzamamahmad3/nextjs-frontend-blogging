@@ -6,6 +6,7 @@ import Tabs from "../components/Tabs";
 import { fetchArticle, fetchCategories } from "../http";
 import { IArticle, ICategory, ICollectionResponse } from "../types";
 import qs from "qs";
+import Pagination from "../components/Pagination";
 interface IPropTypes {
   categories: {
     items: ICategory[];
@@ -26,17 +27,18 @@ const Home: NextPage<IPropTypes> = ({ categories, articles }) => {
       <Tabs categories={categories.items} />
       {/* We're going to use Article data that we fetch from Server 1. We need to create end point for our http server */}
       <ArticleList articles={articles.items} />
+      <Pagination />
     </div>
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const options = {
     populate: ["author.avatar"],
     sort: ["id:desc"],
   };
   const queryString = qs.stringify(options);
-  console.log(queryString);
+
   // Articles fetch`
   const { data: articles }: AxiosResponse<ICollectionResponse<IArticle[]>> =
     await fetchArticle(queryString);
