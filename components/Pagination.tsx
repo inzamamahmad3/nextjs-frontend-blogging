@@ -24,7 +24,7 @@ const Pagination = ({ page, pageCount, redirectUrl = "/" }: IPropType) => {
     }
 
     const queryString = qs.stringify({
-      //   ...router.query,
+      ...router.query,
       page: page + direction,
     });
     router.push(`${redirectUrl}?${queryString}`);

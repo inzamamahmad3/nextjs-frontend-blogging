@@ -5,14 +5,12 @@ import { useRouter } from "next/router";
 
 interface IPropType {
   categories: ICategory[];
+  handleOnSearch: (query: string) => void;
 }
-const Tabs = ({ categories }: IPropType) => {
+const Tabs = ({ categories, handleOnSearch }: IPropType) => {
   const router = useRouter();
   const isActiveLink = (category: ICategory) => {
     return category.attributes.slug === router.query.category;
-  };
-  const handleOnSearch = (query: string) => {
-    console.log("Handling Search");
   };
 
   return (
