@@ -12,3 +12,6 @@ export const fetchCategories = async () => api.get("/api/categories");
 // Creating an endpoint for our articles http request
 export const fetchArticle = async (queryString: string) =>
   api.get(`/api/articles?${queryString}`);
+
+export const fetchArticleBySlug = async (queryString: string) =>
+  api.get(`/api/articles?${queryString}`);
